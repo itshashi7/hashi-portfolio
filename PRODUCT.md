@@ -9,7 +9,7 @@ web
 ## Stack
 
 Decided in the build brief: Next.js (App Router) + TypeScript + Tailwind CSS, `output: 'export'`
-static build deployed to GitHub Pages at itshashi7.github.io. GSAP + ScrollTrigger (section
+static build deployed to GitHub Pages at itshashi7.github.io/hashi-portfolio/ (repo hashi-portfolio). GSAP + ScrollTrigger (section
 choreography, Flip, pinning), Anime.js (micro-interactions), React Bits (Rotating Text, Logo Loop,
 Spotlight Card), next-themes (light/dark). No server, no API keys in the frontend, no LLM calls.
 

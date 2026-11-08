@@ -17,7 +17,7 @@ content items, and the site updates on the next build.
 - [ ] RAG & MCP workshop: what you shipped or learned (outcome line)
 - [ ] IZO Multi Cloud Connect: a measurable outcome you can share publicly (optional; none is on the CV)
 - [ ] Experiments: "Try it" and "View code" links for RAG pipeline, MCP server setup and Built with Claude Code
-- [ ] This site: public repo URL for the "Built with Claude Code" card (https://github.com/itshashi7/hashi once it's pushed)
+- [x] This site: repo URL on the "Built with Claude Code" card → https://github.com/itshashi7/hashi-portfolio
 
 ## To confirm (taken from the brief, not the CV)
 - [ ] B.E. graduation year 2024
@@ -30,8 +30,8 @@ content items, and the site updates on the next build.
 - [x] The phone number from the CV is deliberately not published
 
 ## Ship
-- [ ] Create the public repo `hashi` (empty), push to `main`, and set Settings → Pages → Source to "GitHub Actions".
-      The site goes live at https://itshashi7.github.io/hashi/. The old site in `itshashi7.github.io` stays as it is.
+- [ ] Create the public repo `hashi-portfolio` (empty), push to `main`, and set Settings → Pages → Source to "GitHub Actions".
+      The site goes live at https://itshashi7.github.io/hashi-portfolio/. The old site in `itshashi7.github.io` stays as it is.
 - [ ] Re-measure mobile Lighthouse Performance on the live site. Locally it scored 72–79 (desktop 99) with
       blocking time around 1s at 4x CPU throttling. Kaspersky injects a render-blocking script and strips compression
       locally, so the local numbers understate the live site. If it's still under 90 live: defer the Nav ScrollTrigger

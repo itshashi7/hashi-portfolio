@@ -11,7 +11,11 @@
     "aiSummary": "Uses AI-assisted development extensively – GitHub Copilot (Agent mode, multiple models) and Claude Code – for implementation, testing, and debugging, with hands-on experience building RAG pipelines and setting up MCP servers for AI agents.",
     "languages": {
       "source": "brief",
-      "items": ["English", "Tamil", "Hindi"]
+      "items": [
+        "English",
+        "Tamil",
+        "Hindi"
+      ]
     }
   },
   "links": {
@@ -41,7 +45,23 @@
         "Use GitHub Copilot extensively, including Agent mode across multiple models, for implementation, testing, debugging, and code exploration, reviewing and validating generated code before it ships.",
         "Participate in code and design reviews; collaborate with Product Owners and QA in Agile sprints."
       ],
-      "stack": ["Java", "Spring Boot", "RabbitMQ", "PostgreSQL", "MySQL", "Redis", "Docker", "Jenkins", "JUnit", "Mockito", "SonarQube", "AWS", "Azure", "GCP", "GitHub Copilot"]
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "RabbitMQ",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Docker",
+        "Jenkins",
+        "JUnit",
+        "Mockito",
+        "SonarQube",
+        "AWS",
+        "Azure",
+        "GCP",
+        "GitHub Copilot"
+      ]
     }
   ],
   "projects": [
@@ -52,8 +72,20 @@
       "type": "Work · Tata Communications",
       "year": "2024 – Present",
       "role": "Engineer – Backend Developer",
-      "categories": ["Backend", "Cloud"],
-      "tags": ["Java", "Spring Boot", "RabbitMQ", "PostgreSQL", "MySQL", "Redis", "Docker", "Jenkins"],
+      "categories": [
+        "Backend",
+        "Cloud"
+      ],
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "RabbitMQ",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Docker",
+        "Jenkins"
+      ],
       "prompt": "GET /api/v1/connections?cloud=aws",
       "promptNote": "Illustrative request line, not a real IZO endpoint.",
       "summary": "Cloud-native backend services for an enterprise multi-cloud networking platform: REST APIs and service-to-service integrations in Java and Spring Boot, asynchronous event-driven processing over RabbitMQ, relational data in PostgreSQL and MySQL, and Redis caching, shipped through Jenkins CI/CD.",
@@ -72,8 +104,15 @@
       "type": "Personal project",
       "year": "TODO: year",
       "role": "Developer",
-      "categories": ["AI", "Tools"],
-      "tags": ["Python", "Streamlit", "NLP"],
+      "categories": [
+        "AI",
+        "Tools"
+      ],
+      "tags": [
+        "Python",
+        "Streamlit",
+        "NLP"
+      ],
       "prompt": "summarize --article \"Alan_Turing\" --level short",
       "promptNote": "Illustrative command line.",
       "summary": "A Python web application built with Streamlit that summarizes Wikipedia articles using Natural Language Processing techniques, with adjustable summarization levels and a user feedback loop to improve output quality.",
@@ -95,8 +134,17 @@
       "type": "Workshop",
       "year": "TODO: year",
       "role": "Participant / builder",
-      "categories": ["AI"],
-      "tags": ["RAG", "Embeddings", "Vector search", "MCP", "Claude Code", "GitHub Copilot"],
+      "categories": [
+        "AI"
+      ],
+      "tags": [
+        "RAG",
+        "Embeddings",
+        "Vector search",
+        "MCP",
+        "Claude Code",
+        "GitHub Copilot"
+      ],
       "prompt": "retrieve(query, k=4) → ground(llm, chunks)",
       "promptNote": "Illustrative pseudo-call.",
       "summary": "Built a retrieval-augmented generation (RAG) pipeline hands-on – document chunking, embeddings, vector retrieval, and grounded LLM responses – and set up MCP (Model Context Protocol) servers to expose tools to AI agents, working with agent loops and tool-calling in GitHub Copilot and Claude Code.",
@@ -116,36 +164,143 @@
       "id": "rag-pipeline",
       "title": "RAG pipeline",
       "body": "Document chunking, embeddings, vector retrieval and grounded LLM responses, built stage by stage in a hands-on workshop.",
-      "links": { "try": "TODO: demo link", "code": "TODO: code link" }
+      "links": {
+        "try": "TODO: demo link",
+        "code": "TODO: code link"
+      }
     },
     {
       "id": "mcp-servers",
       "title": "MCP server setup",
       "body": "Set up Model Context Protocol servers to expose tools to AI agents, and worked with agent loops and tool-calling.",
-      "links": { "try": "TODO: demo link", "code": "TODO: code link" }
+      "links": {
+        "try": "TODO: demo link",
+        "code": "TODO: code link"
+      }
     },
     {
       "id": "built-with-claude-code",
       "title": "Built with Claude Code",
       "body": "Uses Claude Code and GitHub Copilot Agent mode across multiple models for implementation, testing, debugging and code exploration, and reviews generated code before it ships. This site was built that way too.",
-      "links": { "try": "TODO: demo link", "code": "TODO: repo link for this site" }
+      "links": {
+        "try": "TODO: demo link",
+        "code": "https://github.com/itshashi7/hashi-portfolio"
+      }
     }
   ],
   "skills": [
-    { "group": "Programming Languages", "items": ["Java", "Python", "SQL", "C", "C++"] },
-    { "group": "Backend & APIs", "items": ["Spring Boot", "RESTful APIs", "Microservices", "Service-to-Service Integrations"] },
-    { "group": "Distributed & Event-Driven", "items": ["RabbitMQ", "Asynchronous Processing", "Message Queues", "Event-Driven Architecture"] },
-    { "group": "Databases", "items": ["PostgreSQL", "MySQL", "Redis"] },
-    { "group": "Cloud & Containers", "items": ["AWS", "Azure", "GCP", "Docker"] },
-    { "group": "Testing & Quality", "items": ["JUnit", "Mockito", "Automated Unit & Integration Testing", "SonarQube", "Code Reviews"] },
-    { "group": "CI/CD & Tools", "items": ["Jenkins", "Git", "GitLab", "Maven", "Postman", "Jira", "IntelliJ IDEA", "VS Code"] },
-    { "group": "AI & LLM", "items": ["RAG (embeddings, vector search)", "MCP Servers", "AI Agents & Tool-Calling", "GitHub Copilot", "Claude Code"] },
-    { "group": "Practices", "items": ["Debugging & Root-Cause Analysis", "Incremental Delivery", "Agile / Scrum"] }
+    {
+      "group": "Programming Languages",
+      "items": [
+        "Java",
+        "Python",
+        "SQL",
+        "C",
+        "C++"
+      ]
+    },
+    {
+      "group": "Backend & APIs",
+      "items": [
+        "Spring Boot",
+        "RESTful APIs",
+        "Microservices",
+        "Service-to-Service Integrations"
+      ]
+    },
+    {
+      "group": "Distributed & Event-Driven",
+      "items": [
+        "RabbitMQ",
+        "Asynchronous Processing",
+        "Message Queues",
+        "Event-Driven Architecture"
+      ]
+    },
+    {
+      "group": "Databases",
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "Redis"
+      ]
+    },
+    {
+      "group": "Cloud & Containers",
+      "items": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Docker"
+      ]
+    },
+    {
+      "group": "Testing & Quality",
+      "items": [
+        "JUnit",
+        "Mockito",
+        "Automated Unit & Integration Testing",
+        "SonarQube",
+        "Code Reviews"
+      ]
+    },
+    {
+      "group": "CI/CD & Tools",
+      "items": [
+        "Jenkins",
+        "Git",
+        "GitLab",
+        "Maven",
+        "Postman",
+        "Jira",
+        "IntelliJ IDEA",
+        "VS Code"
+      ]
+    },
+    {
+      "group": "AI & LLM",
+      "items": [
+        "RAG (embeddings, vector search)",
+        "MCP Servers",
+        "AI Agents & Tool-Calling",
+        "GitHub Copilot",
+        "Claude Code"
+      ]
+    },
+    {
+      "group": "Practices",
+      "items": [
+        "Debugging & Root-Cause Analysis",
+        "Incremental Delivery",
+        "Agile / Scrum"
+      ]
+    }
   ],
   "stackLogos": [
-    "Java", "Spring Boot", "Python", "PostgreSQL", "MySQL", "Redis", "RabbitMQ", "Docker",
-    "AWS", "Azure", "GCP", "Jenkins", "Git", "GitHub", "GitLab", "Maven", "JUnit", "SonarQube",
-    "Postman", "Jira", "IntelliJ IDEA", "VS Code", "GitHub Copilot", "Claude"
+    "Java",
+    "Spring Boot",
+    "Python",
+    "PostgreSQL",
+    "MySQL",
+    "Redis",
+    "RabbitMQ",
+    "Docker",
+    "AWS",
+    "Azure",
+    "GCP",
+    "Jenkins",
+    "Git",
+    "GitHub",
+    "GitLab",
+    "Maven",
+    "JUnit",
+    "SonarQube",
+    "Postman",
+    "Jira",
+    "IntelliJ IDEA",
+    "VS Code",
+    "GitHub Copilot",
+    "Claude"
   ],
   "education": [
     {

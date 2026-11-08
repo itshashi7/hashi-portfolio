@@ -9,7 +9,7 @@ export const profile = data;
 export const projects = data.projects as Project[];
 
 /** Public URL of the site (project page). Keep in sync with BASE_PATH in next.config.ts. */
-export const SITE_URL = "https://itshashi7.github.io/hashi";
+export const SITE_URL = "https://itshashi7.github.io/hashi-portfolio";
 
 /** True for strings the site must render as a visible TODO. */
 export const isTodo = (v: unknown): v is string => typeof v === "string" && v.trim().startsWith("TODO");

@@ -1,11 +1,11 @@
 // Serves the static export (out/) under the same base path GitHub Pages uses, with gzip.
-// Usage: npm run serve  →  http://localhost:4173/hashi/
+// Usage: npm run serve  →  http://localhost:4173/hashi-portfolio/
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import zlib from "node:zlib";
 
-const BASE = "/hashi";
+const BASE = "/hashi-portfolio";
 const root = path.resolve("out");
 const port = Number(process.env.PORT || 4173);
 const types = {
@@ -17,7 +17,7 @@ http
   .createServer((req, res) => {
     const url = new URL(req.url, "http://localhost");
     if (url.pathname === "/" || url.pathname === BASE) return res.writeHead(302, { location: `${BASE}/` }).end();
-    if (!url.pathname.startsWith(`${BASE}/`)) return res.writeHead(404).end("Not found (the site lives under /hashi/)");
+    if (!url.pathname.startsWith(`${BASE}/`)) return res.writeHead(404).end("Not found (the site lives under /hashi-portfolio/)");
     let file = path.join(root, decodeURIComponent(url.pathname.slice(BASE.length)));
     if (!file.startsWith(root)) return res.writeHead(403).end();
     if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, "index.html");

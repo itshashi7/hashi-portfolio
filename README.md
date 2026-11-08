@@ -1,7 +1,7 @@
 # Hashim Khan N — portfolio
 
 Personal site of Hashim Khan N, Software Engineer – Backend. It's a single page, exported as static
-HTML and deployed to GitHub Pages at **https://itshashi7.github.io/hashi/** (repo `itshashi7/hashi`).
+HTML and deployed to GitHub Pages at **https://itshashi7.github.io/hashi-portfolio/** (repo `itshashi7/hashi-portfolio`).
 
 ## Stack
 
@@ -25,7 +25,7 @@ content is static and fully visible, prompts appear already typed, the Deck beco
 npm install
 npm run dev        # http://localhost:3000
 npm run build      # static export to out/
-npm run serve      # serve out/ at http://localhost:4173/hashi/
+npm run serve      # serve out/ at http://localhost:4173/hashi-portfolio/
 npm run typecheck
 ```
 
@@ -60,15 +60,15 @@ Add a value there first, then expose it in `app/globals.css` (CSS variables plus
 
 ## Deploy (GitHub Pages)
 
-1. Create an empty public repo named **`hashi`** and push this folder to its `main` branch.
+1. Create an empty public repo named **`hashi-portfolio`** and push this folder to its `main` branch.
 2. In the repo, open **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**.
 3. Every push to `main` runs `.github/workflows/deploy.yml`, which installs, type-checks, builds `out/` and
-   deploys it. The site goes live at https://itshashi7.github.io/hashi/.
+   deploys it. The site goes live at https://itshashi7.github.io/hashi-portfolio/.
 
-The site lives under the `/hashi` path, set by `BASE_PATH` in `next.config.ts` and `SITE_URL` in
+The site lives under the `/hashi-portfolio` path, set by `BASE_PATH` in `next.config.ts` and `SITE_URL` in
 `lib/profile.ts`. To move it (for example to the root `itshashi7.github.io` repo), change both: use `""` and
 `https://itshashi7.github.io` for the root. To preview the built site locally with the path in place, serve the
-folder that contains a copy of `out/` named `hashi`, then open `/hashi/`.
+folder that contains a copy of `out/` named `hashi-portfolio`, then open `/hashi-portfolio/`.
 
 ## SEO assets
 
