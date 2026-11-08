@@ -30,12 +30,10 @@ content items, and the site updates on the next build.
 - [x] The phone number from the CV is deliberately not published
 
 ## Ship
-- [ ] Create the public repo `hashi-portfolio` (empty), push to `main`, and set Settings → Pages → Source to "GitHub Actions".
-      The site goes live at https://itshashi7.github.io/hashi-portfolio/. The old site in `itshashi7.github.io` stays as it is.
-- [ ] Re-measure mobile Lighthouse Performance on the live site. Locally it scored 72–79 (desktop 99) with
-      blocking time around 1s at 4x CPU throttling. Kaspersky injects a render-blocking script and strips compression
-      locally, so the local numbers understate the live site. If it's still under 90 live: defer the Nav ScrollTrigger
-      setup to idle, and consider replacing the Motion-based Rotating Text.
+- [x] Live at https://itshashi7.github.io/hashi-portfolio/ (repo `hashi-portfolio`, Pages source: GitHub Actions,
+      2026-11-08). The old site in `itshashi7.github.io` is unchanged.
+- [x] Lighthouse on the live site (2026-11-08): mobile Performance 95–96, Accessibility 100, Best Practices 100,
+      SEO 100 (LCP 2.3s, TBT 60–130ms, CLS 0); desktop 100 / 100 / 100 / 100.
 
 ## Tooling gaps from the build
 - [ ] Firecrawl: the keyless tier refused poulo.site. Add a Firecrawl API key to re-run the Phase 1
