@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+npm-debug.log*
+.env*
+# Impeccable runtime folders (they also ignore themselves)
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/config.local.json
+
+# The CV includes a phone number: never commit it to the public repo.
+/cv.pdf
+/public/cv.pdf

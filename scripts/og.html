@@ -1,0 +1,40 @@
+<!doctype html>
+<!--
+  Source for public/og.png (1200×630). Rendered with the site's own fonts and DESIGN.md tokens.
+  Regenerate: npm run build, copy this file into out/, serve out/, open /og.html at 1200×630 in Chrome
+  and screenshot the viewport to public/og.png (see README → "OG image").
+-->
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8" />
+<title>OG image</title>
+<link rel="stylesheet" href="__SITE_CSS__" />
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; background: #0b0c0f; overflow: hidden; }
+  .card { box-sizing: border-box; width: 1200px; height: 630px; padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between;
+    color: #f2f3f6; font-family: var(--font-archivo), "Archivo", sans-serif; border-left: 1px solid rgb(255 255 255 / 0.08); }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-jetbrains), "JetBrains Mono", monospace; font-size: 22px; color: #8d9198; }
+  h1 { margin: 0; font-size: 88px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; font-variation-settings: "wdth" 92; }
+  p { margin: 20px 0 0; font-size: 30px; line-height: 1.35; color: #b3b6bc; max-width: 900px; }
+  .trace { display: flex; align-items: center; gap: 0; position: relative; margin-top: 8px; }
+  .trace::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgb(255 255 255 / 0.16); }
+  .node { position: relative; z-index: 1; font-family: var(--font-jetbrains), "JetBrains Mono", monospace; font-size: 20px; color: #b3b6bc;
+    background: #0b0c0f; border: 1px solid rgb(255 255 255 / 0.16); border-radius: 999px; padding: 8px 18px; }
+  .node.on { border-color: #faaa49; color: #f2f3f6; }
+  .row { display: flex; justify-content: space-between; align-items: center; }
+  .dot { width: 12px; height: 12px; border-radius: 999px; background: #faaa49; display: inline-block; margin-right: 12px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top"><span>itshashi7.github.io</span><span><span class="dot"></span>Open to remote · UAE · KSA</span></div>
+    <div>
+      <h1>Hashim Khan N</h1>
+      <p>Software Engineer – Backend. Java and Spring Boot microservices, RabbitMQ, PostgreSQL and Redis across AWS, Azure and GCP.</p>
+    </div>
+    <div class="trace row">
+      <span class="node">client</span><span class="node">gateway</span><span class="node on">service</span><span class="node">rabbitmq</span><span class="node">redis</span><span class="node">postgres</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+{
+  "$comment": "Single source of content for the site. Every fact here comes from cv.pdf unless its \"source\" says \"brief\" (stated by Hashim in the build brief, not on the CV). Strings starting with TODO: render visibly on the site and are tracked in TODO.md.",
+  "person": {
+    "name": "Hashim Khan N",
+    "shortName": "Hashim",
+    "title": "Software Engineer – Backend",
+    "location": "India",
+    "availability": "Open to remote work",
+    "yearsExperience": "2+",
+    "summary": "Software Engineer with 2+ years of experience building cloud-native backend services, REST APIs, and event-driven integrations for an enterprise multi-cloud networking platform. Hands-on with Java, Spring Boot, and Python, asynchronous processing with RabbitMQ, and PostgreSQL, MySQL, and Redis, running across AWS, Azure, and GCP. Owns scoped features from implementation through automated testing and CI/CD deployment, and debugs issues methodically down to their root cause.",
+    "aiSummary": "Uses AI-assisted development extensively – GitHub Copilot (Agent mode, multiple models) and Claude Code – for implementation, testing, and debugging, with hands-on experience building RAG pipelines and setting up MCP servers for AI agents.",
+    "languages": {
+      "source": "brief",
+      "items": ["English", "Tamil", "Hindi"]
+    }
+  },
+  "links": {
+    "email": "hashimkhan1618@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/hashim-khan-7b07b3223",
+    "github": "https://github.com/itshashi7",
+    "resume": "TODO: CV without the phone number. Add it as public/cv.pdf, then set this to /cv.pdf"
+  },
+  "experience": [
+    {
+      "id": "tata-communications",
+      "company": "Tata Communications Ltd",
+      "role": "Engineer – Backend Developer",
+      "start": "2024-07",
+      "end": null,
+      "endLabel": "Present",
+      "product": "IZO Multi Cloud Connect",
+      "productDescription": "An enterprise platform connecting enterprise infrastructure securely to public clouds (AWS, Azure, GCP).",
+      "highlights": [
+        "Build cloud-native backend services for IZO Multi Cloud Connect, an enterprise platform connecting enterprise infrastructure securely to public clouds (AWS, Azure, GCP).",
+        "Design and build REST APIs and service-to-service integrations using Java and Spring Boot, across Controller, Service, and Repository layers.",
+        "Implement asynchronous, event-driven processing between services using RabbitMQ message queues, decoupling services and improving resilience under load.",
+        "Model relational data and write efficient queries in PostgreSQL and MySQL, and use Redis in microservices for caching and fast in-memory data access.",
+        "Own scoped features end to end – implementation, automated testing, and deployment through Jenkins CI/CD – and demo completed functionality to QA.",
+        "Write automated unit and integration tests with JUnit and Mockito; uphold code quality with SonarQube.",
+        "Debug Dockerized microservices via container logs and environment configuration, fixing issues at the root cause.",
+        "Use GitHub Copilot extensively, including Agent mode across multiple models, for implementation, testing, debugging, and code exploration, reviewing and validating generated code before it ships.",
+        "Participate in code and design reviews; collaborate with Product Owners and QA in Agile sprints."
+      ],
+      "stack": ["Java", "Spring Boot", "RabbitMQ", "PostgreSQL", "MySQL", "Redis", "Docker", "Jenkins", "JUnit", "Mockito", "SonarQube", "AWS", "Azure", "GCP", "GitHub Copilot"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "izo-multi-cloud-connect",
+      "title": "IZO Multi Cloud Connect",
+      "headline": "Backend services that connect enterprise infrastructure securely to AWS, Azure and GCP.",
+      "type": "Work · Tata Communications",
+      "year": "2024 – Present",
+      "role": "Engineer – Backend Developer",
+      "categories": ["Backend", "Cloud"],
+      "tags": ["Java", "Spring Boot", "RabbitMQ", "PostgreSQL", "MySQL", "Redis", "Docker", "Jenkins"],
+      "prompt": "GET /api/v1/connections?cloud=aws",
+      "promptNote": "Illustrative request line, not a real IZO endpoint.",
+      "summary": "Cloud-native backend services for an enterprise multi-cloud networking platform: REST APIs and service-to-service integrations in Java and Spring Boot, asynchronous event-driven processing over RabbitMQ, relational data in PostgreSQL and MySQL, and Redis caching, shipped through Jenkins CI/CD.",
+      "caseStudy": {
+        "problem": "Enterprises need their own infrastructure connected securely to several public clouds (AWS, Azure, GCP) through one platform.",
+        "approach": "Own scoped features end to end – implementation, automated tests with JUnit and Mockito, SonarQube quality gates and Jenkins deployment – then demo completed functionality to QA.",
+        "architecture": "Spring Boot microservices layered Controller → Service → Repository, talking over REST and RabbitMQ message queues, with PostgreSQL/MySQL for relational data and Redis for in-memory caching, running in Docker.",
+        "outcome": "Event-driven processing decoupled services and improved resilience under load. TODO: add a measurable outcome you can share publicly (none is on the CV)."
+      },
+      "links": {}
+    },
+    {
+      "id": "wikipedia-summarizer",
+      "title": "Wikipedia Summarizer",
+      "headline": "A Streamlit app that turns long Wikipedia articles into summaries at the length you choose.",
+      "type": "Personal project",
+      "year": "TODO: year",
+      "role": "Developer",
+      "categories": ["AI", "Tools"],
+      "tags": ["Python", "Streamlit", "NLP"],
+      "prompt": "summarize --article \"Alan_Turing\" --level short",
+      "promptNote": "Illustrative command line.",
+      "summary": "A Python web application built with Streamlit that summarizes Wikipedia articles using Natural Language Processing techniques, with adjustable summarization levels and a user feedback loop to improve output quality.",
+      "caseStudy": {
+        "problem": "Wikipedia articles are long; readers often want the gist at a depth they control.",
+        "approach": "Built a Python web app with Streamlit that applies NLP summarization to an article.",
+        "architecture": "Python + Streamlit front end over an NLP summarization step, with adjustable summarization levels. TODO: name the NLP library/technique used.",
+        "outcome": "Integrated a user feedback loop to improve output quality. TODO: add any result you can share (users, accuracy, screenshots)."
+      },
+      "links": {
+        "repo": "https://github.com/itshashi7/wiki_summarizer",
+        "demo": "TODO: live demo URL, if any"
+      }
+    },
+    {
+      "id": "rag-mcp-workshop",
+      "title": "RAG & MCP – Hands-on AI Workshop",
+      "headline": "A retrieval-augmented generation pipeline built by hand, plus MCP servers that give AI agents tools.",
+      "type": "Workshop",
+      "year": "TODO: year",
+      "role": "Participant / builder",
+      "categories": ["AI"],
+      "tags": ["RAG", "Embeddings", "Vector search", "MCP", "Claude Code", "GitHub Copilot"],
+      "prompt": "retrieve(query, k=4) → ground(llm, chunks)",
+      "promptNote": "Illustrative pseudo-call.",
+      "summary": "Built a retrieval-augmented generation (RAG) pipeline hands-on – document chunking, embeddings, vector retrieval, and grounded LLM responses – and set up MCP (Model Context Protocol) servers to expose tools to AI agents, working with agent loops and tool-calling in GitHub Copilot and Claude Code.",
+      "caseStudy": {
+        "problem": "LLM answers drift without grounding, and agents can only act through the tools they are given.",
+        "approach": "Built each RAG stage by hand, then set up MCP servers to expose tools to agents.",
+        "architecture": "Document chunking → embeddings → vector retrieval → grounded LLM response; MCP servers exposing tools to agent loops in GitHub Copilot and Claude Code.",
+        "outcome": "TODO: add what you shipped or learned (repo, demo, write-up)."
+      },
+      "links": {
+        "repo": "TODO: code link, if any"
+      }
+    }
+  ],
+  "experiments": [
+    {
+      "id": "rag-pipeline",
+      "title": "RAG pipeline",
+      "body": "Document chunking, embeddings, vector retrieval and grounded LLM responses, built stage by stage in a hands-on workshop.",
+      "links": { "try": "TODO: demo link", "code": "TODO: code link" }
+    },
+    {
+      "id": "mcp-servers",
+      "title": "MCP server setup",
+      "body": "Set up Model Context Protocol servers to expose tools to AI agents, and worked with agent loops and tool-calling.",
+      "links": { "try": "TODO: demo link", "code": "TODO: code link" }
+    },
+    {
+      "id": "built-with-claude-code",
+      "title": "Built with Claude Code",
+      "body": "Uses Claude Code and GitHub Copilot Agent mode across multiple models for implementation, testing, debugging and code exploration, and reviews generated code before it ships. This site was built that way too.",
+      "links": { "try": "TODO: demo link", "code": "TODO: repo link for this site" }
+    }
+  ],
+  "skills": [
+    { "group": "Programming Languages", "items": ["Java", "Python", "SQL", "C", "C++"] },
+    { "group": "Backend & APIs", "items": ["Spring Boot", "RESTful APIs", "Microservices", "Service-to-Service Integrations"] },
+    { "group": "Distributed & Event-Driven", "items": ["RabbitMQ", "Asynchronous Processing", "Message Queues", "Event-Driven Architecture"] },
+    { "group": "Databases", "items": ["PostgreSQL", "MySQL", "Redis"] },
+    { "group": "Cloud & Containers", "items": ["AWS", "Azure", "GCP", "Docker"] },
+    { "group": "Testing & Quality", "items": ["JUnit", "Mockito", "Automated Unit & Integration Testing", "SonarQube", "Code Reviews"] },
+    { "group": "CI/CD & Tools", "items": ["Jenkins", "Git", "GitLab", "Maven", "Postman", "Jira", "IntelliJ IDEA", "VS Code"] },
+    { "group": "AI & LLM", "items": ["RAG (embeddings, vector search)", "MCP Servers", "AI Agents & Tool-Calling", "GitHub Copilot", "Claude Code"] },
+    { "group": "Practices", "items": ["Debugging & Root-Cause Analysis", "Incremental Delivery", "Agile / Scrum"] }
+  ],
+  "stackLogos": [
+    "Java", "Spring Boot", "Python", "PostgreSQL", "MySQL", "Redis", "RabbitMQ", "Docker",
+    "AWS", "Azure", "GCP", "Jenkins", "Git", "GitHub", "GitLab", "Maven", "JUnit", "SonarQube",
+    "Postman", "Jira", "IntelliJ IDEA", "VS Code", "GitHub Copilot", "Claude"
+  ],
+  "education": [
+    {
+      "id": "skct",
+      "degree": "Bachelor of Engineering – Computer Science",
+      "school": "Sri Krishna College of Technology",
+      "city": "Coimbatore",
+      "cgpa": "7.67",
+      "end": "2024",
+      "endSource": "brief"
+    }
+  ],
+  "faq": {
+    "source": "Hashim, 2026-11-08 (not on the CV)",
+    "relocation": "Yes. Open to remote roles and to relocating to the UAE or Saudi Arabia for the right role.",
+    "noticePeriod": "90 days."
+  }
+}
