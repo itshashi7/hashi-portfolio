@@ -86,7 +86,7 @@ folder that contains a copy of `out/` named `hashi-portfolio`, then open `/hashi
 ```
 app/                 layout, page, global CSS, sitemap, robots, icons
 components/site/     loader, nav, theme toggle, scroll index
-components/fx/       smooth scroll, cursor, scroll progress, hero service-network canvas, marquee bands, split reveals, theme-flipping sheet
+components/fx/       smooth scroll, scroll progress, hero service-network canvas, marquee bands, split reveals, theme-flipping sheet
 components/ui/       buttons (shine, liquid, hire CTA, roll text), sliding thumb, magnetic, reveal helpers
 components/sections/ hero (+ request trace), marquee, works, experiments, ask, about, stack, footer
 components/works/    typed prompt line, case schematics

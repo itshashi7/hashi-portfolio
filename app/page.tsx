@@ -6,7 +6,6 @@ import { Hero } from "@/components/sections/hero";
 import { IconSprite } from "@/components/ui/icon-sprite";
 import { SmoothScroll } from "@/components/fx/smooth-scroll";
 import { ScrollProgress } from "@/components/fx/scroll-progress";
-import { Cursor } from "@/components/fx/cursor";
 import { Band } from "@/components/fx/band";
 import { Sheet } from "@/components/fx/sheet";
 import { profile } from "@/lib/profile";
@@ -47,7 +46,6 @@ export default function Page() {
       <IconSprite />
       <SmoothScroll />
       <ScrollProgress />
-      <Cursor />
       <Loader />
       <Nav />
       <ScrollIndex />

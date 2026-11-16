@@ -238,7 +238,6 @@ small controls (nav items, buttons, chips, toggles, the chat launcher).
 | Widgets | Anime.js | each update ≤ `base` 240ms | Values update without tweening; streams pause |
 | Smooth scroll | Lenis (driven by GSAP's ticker) | `lerp` 0.1; anchors handled by Lenis; inner scrollers opt out with `data-lenis-prevent` | Native scroll |
 | Scroll progress | GSAP ScrollTrigger scrub | 2px accent hairline, `scaleX` 0 → 1 | Hidden |
-| Cursor ring | GSAP `quickTo` | 36px ring, lag 400ms; swells to 1.7× and tints with `accent-soft` over clickable things; fine pointers only | Not rendered |
 | Service network (hero canvas) | Canvas 2D, seeded | 14–48 drifting nodes, links brighten near the pointer, amber request packets; starts when idle, pauses off-screen | One static frame |
 | Marquee bands | GSAP ticker | 70px/s (md row 46), speeds up with scroll velocity, reverses on scroll-up, skew ≤ 7°; alternating `ink` / `ink-subtle`; `aria-hidden` | Static, not moving |
 | Headline reveal | GSAP SplitText + ScrollTrigger | each line rises out of its own mask, `max` 600ms `out-expo`, 70ms stagger; only for headings below the fold | Plain text |
