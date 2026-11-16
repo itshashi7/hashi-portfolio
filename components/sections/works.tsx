@@ -6,6 +6,7 @@ import { Flip, gsap, ScrollTrigger, useGSAP, prefersReduced, useReducedMotion, M
 import { dur, gsapEase } from "@/lib/tokens";
 import { categories, projects, type Category, type Project } from "@/lib/profile";
 import { PromptLine } from "@/components/works/prompt-line";
+import { Disclosure } from "@/components/ui/disclosure";
 import { Schematic } from "@/components/works/schematic";
 import { TodoLink, TodoText } from "@/components/ui/todo-text";
 import { useReveal } from "@/components/ui/use-reveal";
@@ -208,16 +209,18 @@ function CaseStudy({ p }: { p: Project }) {
             <Tags tags={p.tags} />
           </div>
           <p className="mt-5 max-w-[60ch] text-body text-ink-muted">{p.summary}</p>
-          <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-            {POINTS.map(([label, key]) => (
-              <div key={key}>
-                <h4 className="text-small font-[550] text-ink">{label}</h4>
-                <p className="mt-1.5 text-small text-ink-muted">
-                  <TodoText text={p.caseStudy[key]} />
-                </p>
-              </div>
-            ))}
-          </div>
+          <Disclosure label="Open the case file" openLabel="Close the case file" className="mt-8">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-6 pt-6 sm:grid-cols-2">
+              {POINTS.map(([label, key]) => (
+                <div key={key}>
+                  <h4 className="text-small font-[550] text-ink">{label}</h4>
+                  <p className="mt-1.5 text-small text-ink-muted">
+                    <TodoText text={p.caseStudy[key]} />
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Disclosure>
           {(p.links.repo || p.links.demo) && (
             <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-small">
               {p.links.repo && <TodoLink href={p.links.repo} className="text-ink underline hover:decoration-accent">Source code</TodoLink>}

@@ -17,9 +17,9 @@ const INTENTS: Intent[] = [
     answer: () => ({ text: `${profile.faq.relocation} I'm based in ${profile.person.location} today.` }),
   },
   {
-    id: "notice",
+    id: "timing",
     keys: ["notice", "join", "start date", "when can", "available", "availability", "how soon"],
-    answer: () => ({ text: `My notice period is ${profile.faq.noticePeriod.replace(/\.$/, "")}.`, links: [email] }),
+    answer: () => ({ text: "Timing is easier to sort out over email. Write to me and we'll work it out.", links: [email] }),
   },
   {
     id: "izo",
@@ -84,11 +84,11 @@ const INTENTS: Intent[] = [
   {
     id: "greeting",
     keys: ["hello", "hey", "hi ", "hi!", "salam", "good morning"],
-    answer: () => ({ text: "Hi. Ask me about my stack, my work at Tata Communications, relocation or notice period." }),
+    answer: () => ({ text: "Hi. Ask me about my stack, my work at Tata Communications, or relocation." }),
   },
 ];
 
-export const STARTERS = ["What's your stack?", "Tell me about IZO", "Are you open to relocation?", "Notice period?"];
+export const STARTERS = ["What's your stack?", "Tell me about IZO", "Are you open to relocation?", "What do you build with AI?"];
 
 export function ask(question: string): Answer {
   const q = ` ${question.toLowerCase().replace(/[’']/g, "'")} `;

@@ -11,7 +11,6 @@ import { LOADER_DONE, loaderFinished } from "@/components/site/loader";
 import { gsap, useGSAP, useReducedMotion, MOTION_OK } from "@/lib/motion";
 import { cubic, distance, dur, gsapEase, ms, stagger } from "@/lib/tokens";
 import { mailto, profile, resumeHref } from "@/lib/profile";
-import { RequestTrace } from "./request-trace";
 
 const TITLES = ["Backend Engineer", "Java & Spring Boot Developer", "Multi-Cloud Builder", "AI-Assisted Builder"];
 
@@ -26,15 +25,15 @@ const INTRO = [
     body: "REST APIs, service-to-service integrations and event-driven processing for an enterprise multi-cloud networking platform.",
   },
   {
-    label: "Java · Spring Boot · RabbitMQ · PostgreSQL · Redis.",
-    body: "Running across AWS, Azure and GCP, shipped through Jenkins CI/CD.",
+    label: "Mostly the parts nobody sees.",
+    body: "Java, Spring Boot, RabbitMQ, PostgreSQL and Redis, running across AWS, Azure and GCP.",
   },
 ];
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(-1);
 
   useGSAP(
     () => {
@@ -110,9 +109,6 @@ export function Hero() {
             ))}
           </ul>
         </div>
-      </div>
-      <div data-hero className="relative">
-        <RequestTrace />
       </div>
     </section>
   );

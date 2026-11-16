@@ -8,7 +8,6 @@ import { SmoothScroll } from "@/components/fx/smooth-scroll";
 import { ScrollProgress } from "@/components/fx/scroll-progress";
 import { Band } from "@/components/fx/band";
 import { Sheet } from "@/components/fx/sheet";
-import { profile } from "@/lib/profile";
 
 // Below-the-fold sections are still pre-rendered to HTML, but their JS loads and hydrates in
 // separate chunks, so start-up work is split into small tasks instead of one long one.
@@ -21,16 +20,11 @@ const About = dynamic(() => import("@/components/sections/about").then((m) => m.
 const Stack = dynamic(() => import("@/components/sections/stack").then((m) => m.Stack));
 const Footer = dynamic(() => import("@/components/sections/footer").then((m) => m.Footer));
 
-// Band copy comes from the CV and the facts confirmed in profile.json.
+// Band copy comes from the CV.
 const BAND_ROWS = [
   {
     items: ["Java", "Spring Boot", "Microservices", "RabbitMQ", "Redis", "PostgreSQL", "Docker", "AWS, Azure, GCP"],
     dir: 1 as const,
-  },
-  {
-    items: ["Open to remote", "Open to relocate: UAE", "Open to relocate: KSA", `Notice: ${profile.faq.noticePeriod.replace(/\.$/, "")}`],
-    dir: -1 as const,
-    size: "md" as const,
   },
 ];
 
@@ -56,7 +50,7 @@ export default function Page() {
         <Marquee />
         <Works />
         <div className="mt-24 lg:mt-32">
-          <Band rows={BAND_ROWS} label="stack-and-availability" />
+          <Band rows={BAND_ROWS} label="stack" />
         </div>
         <Experiments />
         <Ask />

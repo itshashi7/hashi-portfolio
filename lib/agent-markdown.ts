@@ -16,7 +16,7 @@ export function agentMarkdown(): string {
     "",
     `# ${p.name}`,
     "",
-    `${p.title} · ${p.yearsExperience} years · ${p.location} · ${profile.faq.relocation} Notice period: ${profile.faq.noticePeriod}`,
+    `${p.title} · ${p.yearsExperience} years · ${p.location} · ${profile.faq.relocation}`,
     "",
     p.summary,
     "",

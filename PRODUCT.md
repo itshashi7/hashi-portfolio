@@ -35,8 +35,8 @@ platform (IZO Multi Cloud Connect at Tata Communications, connecting enterprise 
 securely to AWS, Azure and GCP): Java and Spring Boot microservices, event-driven RabbitMQ
 integrations, PostgreSQL, MySQL and Redis, shipped through Jenkins CI/CD. He also works
 AI-assisted every day (GitHub Copilot Agent mode, Claude Code) and has built RAG pipelines and MCP
-servers hands-on. The site itself demonstrates the backend mindset through an honest, working
-request trace and system schematics instead of claims.
+servers hands-on. The site itself demonstrates the backend mindset through an honest
+system schematics and a little mystery, instead of claims.
 
 ## Operating Context
 
@@ -50,7 +50,7 @@ request trace and system schematics instead of claims.
 - Every fact comes from `cv.pdf` via `content/profile.json`. Missing details render as visible
   `TODO:` text and are listed in TODO.md. Never invent metrics, employers, dates or projects.
 - Confirmed by Hashim on 2026-11-08 (not on the CV): open to remote roles **and** to relocating
-  to the UAE or Saudi Arabia; notice period 90 days; Tata Communications and IZO Multi Cloud
+  to the UAE or Saudi Arabia; Tata Communications and IZO Multi Cloud
   Connect may be named publicly, described only with the CV's wording.
 - From the brief, not the CV: languages English, Tamil, Hindi; B.E. completed 2024.
 - The phone number on the CV is deliberately not published on the site.

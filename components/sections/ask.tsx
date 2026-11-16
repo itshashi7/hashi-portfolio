@@ -58,7 +58,7 @@ export function Ask() {
             Ask me anything.
           </h2>
           <p data-reveal className="mt-4 text-body text-ink-muted measure">
-            Recruiter questions answered from my CV and the details I&apos;ve confirmed: stack, current work, relocation and notice period.
+            Recruiter questions answered from my CV and the details I&apos;ve confirmed: stack, current work and relocation.
           </p>
         </div>
         <div data-reveal className="flex flex-col rounded-lg border border-hairline bg-surface-1 lg:col-span-8">

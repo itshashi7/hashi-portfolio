@@ -42,7 +42,7 @@ All copy comes from **`content/profile.json`**. Edit it and rebuild, and every s
   plus optional `links.repo` and `links.demo`.
 - `experiments`: the three experiment cards and their Try it / View code links.
 - `skills` and `stackLogos`: the grouped skill lines and the logo grid (logo names map to `lib/icons.ts`).
-- `faq`: relocation and notice period, used by the "Ask me anything" chat.
+- `faq`: relocation, used by the "Ask me anything" chat.
 
 Any string that starts with `TODO` renders as a visible placeholder. The full list is in `TODO.md`.
 The CV download is currently held back because the PDF shows a phone number; both `cv.pdf` copies are
@@ -88,7 +88,7 @@ app/                 layout, page, global CSS, sitemap, robots, icons
 components/site/     loader, nav, theme toggle, scroll index
 components/fx/       smooth scroll, scroll progress, hero service-network canvas, marquee bands, split reveals, theme-flipping sheet
 components/ui/       buttons (shine, liquid, hire CTA, roll text), sliding thumb, magnetic, reveal helpers
-components/sections/ hero (+ request trace), marquee, works, experiments, ask, about, stack, footer
+components/sections/ hero, marquee, works, experiments, ask, about, stack, footer
 components/works/    typed prompt line, case schematics
 components/reactbits React Bits components (vendored)
 lib/                 profile data, tokens, motion helpers, chat intents, Agent view Markdown, icons

@@ -48,15 +48,6 @@ export function Stack() {
           );
         })}
       </ul>
-
-      <dl className="mt-16 grid grid-cols-1 gap-x-10 gap-y-6 border-t border-hairline pt-10 md:grid-cols-2">
-        {profile.skills.map((g) => (
-          <div key={g.group} data-reveal className="grid grid-cols-1 gap-1 sm:grid-cols-[12rem_1fr] sm:gap-4">
-            <dt className="text-small font-[550] text-ink">{g.group}</dt>
-            <dd className="text-small text-ink-muted [text-wrap:pretty]">{g.items.join(", ")}</dd>
-          </div>
-        ))}
-      </dl>
     </section>
   );
 }

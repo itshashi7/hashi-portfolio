@@ -25,7 +25,7 @@ content items, and the site updates on the next build.
 
 ## Decided
 - [x] Relocation: open to remote roles and to relocating to the UAE or Saudi Arabia (confirmed 2026-11-08)
-- [x] Notice period: 90 days (confirmed 2026-11-08)
+- [x] Notice period: confirmed, but kept off the site on purpose (2026-11-16)
 - [x] Tata Communications and IZO Multi Cloud Connect may be named, with CV wording only (confirmed 2026-11-08)
 - [x] The phone number from the CV is deliberately not published
 
