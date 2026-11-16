@@ -11,7 +11,7 @@ import { gsap, ScrollTrigger, prefersReduced } from "@/lib/motion";
 export function SmoothScroll() {
   useEffect(() => {
     if (prefersReduced()) return;
-    const lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1, anchors: true });
+    const lenis = new Lenis({ lerp: 0.16, wheelMultiplier: 1, anchors: true });
     lenis.on("scroll", ScrollTrigger.update);
     const tick = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(tick);

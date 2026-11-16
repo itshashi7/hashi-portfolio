@@ -51,7 +51,7 @@ export function ThemeToggle() {
       type="button"
       onClick={onClick}
       aria-label={`Switch to ${next} theme`}
-      className="group relative grid size-10 place-items-center overflow-hidden rounded-full bg-surface-1/80 text-ink-muted shadow-float backdrop-blur-md transition-transform duration-[var(--dur-fast)] ease-out-quart hover:text-ink active:scale-90 motion-reduce:transition-none sm:size-11"
+      className="group relative grid size-10 place-items-center overflow-hidden rounded-full bg-surface-1 text-ink-muted shadow-float transition-transform duration-[var(--dur-fast)] ease-out-quart hover:text-ink active:scale-90 motion-reduce:transition-none sm:size-11"
     >
       <Sun
         size={17}

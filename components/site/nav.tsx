@@ -73,7 +73,7 @@ export function Nav() {
           ref={thumbBox}
           data-thumb="off"
           aria-label="Primary"
-          className="relative flex h-11 items-center gap-0.5 rounded-full bg-surface-1/80 p-1 shadow-float backdrop-blur-md"
+          className="relative flex h-11 items-center gap-0.5 rounded-full bg-surface-1 p-1 shadow-float"
         >
           <Thumb thumbRef={thumb} />
           {SECTIONS.map(({ id, label }) => {

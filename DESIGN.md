@@ -236,7 +236,7 @@ small controls (nav items, buttons, chips, toggles, the chat launcher).
 | Logo Loop marquee | React Bits Logo Loop | 40px/s linear, pauses on hover/focus | Static row, wraps |
 | Theme switch | View Transitions | radial reveal from the toggle, `max` 600ms `out-expo` | Instant swap |
 | Widgets | Anime.js | each update ≤ `base` 240ms | Values update without tweening; streams pause |
-| Smooth scroll | Lenis (driven by GSAP's ticker) | `lerp` 0.1; anchors handled by Lenis; inner scrollers opt out with `data-lenis-prevent` | Native scroll |
+| Smooth scroll | Lenis (driven by GSAP's ticker) | `lerp` 0.16 (tight, so the page tracks the wheel); anchors handled by Lenis; inner scrollers opt out with `data-lenis-prevent` | Native scroll |
 | Scroll progress | GSAP ScrollTrigger scrub | 2px accent hairline, `scaleX` 0 → 1 | Hidden |
 | Service network (hero canvas) | Canvas 2D, seeded | 14–48 drifting nodes, links brighten near the pointer, amber request packets; starts when idle, pauses off-screen | One static frame |
 | Marquee bands | GSAP ticker | 70px/s (md row 46), speeds up with scroll velocity, reverses on scroll-up, skew ≤ 7°; alternating `ink` / `ink-subtle`; `aria-hidden` | Static, not moving |
@@ -287,7 +287,7 @@ transform/opacity rule doesn't apply to it. Nothing else may break the rules.
 
 | Component | Spec |
 |---|---|
-| **Nav pill** | fixed top-centre, `surface-1` at 80% plus a 12px backdrop blur (the one functional blur), `float` shadow, `pill`, 44px tall. Items are `small` at 15px with an icon and a label (labels drop below 768px). The active item gets `surface-2` and an amber 4px dot. It hides on scroll-down and shows on scroll-up (`base`, `out-expo`, translateY). |
+| **Nav pill** | fixed top-centre, solid `surface-1` (no backdrop blur: repainting a blur every scroll frame dropped frames), `float` shadow, `pill`, 44px tall. Items are `small` at 15px with an icon and a label (labels drop below 768px). The active item gets `surface-2` and an amber 4px dot. It hides on scroll-down and shows on scroll-up (`base`, `out-expo`, translateY). |
 | **Button primary ("Hire me")** | `ink` fill, `canvas` text, `pill`, 40px tall, `small` at weight 550. Hover: Anime.js scale 1.02 plus a 6px magnetic pull. |
 | **Button secondary** | `surface-1`, 1px `hairline-strong` border, `ink` text, `pill`. |
 | **Chip (filter)** | 32px, `pill`, `small`. The label is `ink-muted`, and the count is `mono-sm` in `ink-subtle`. Selected: `surface-2` fill, `ink` label, count in `accent-text`. Chips sit in a segmented track (`surface-1`, hairline border). |
@@ -306,8 +306,8 @@ transform/opacity rule doesn't apply to it. Nothing else may break the rules.
 use real CV facts or a visible `TODO:`; theme every browser surface; test both themes at 375,
 768, 1280 and 1920.
 
-**Don't:** use purple or any gradient; glassmorphism (the nav's backdrop blur is the only blur, and
-it's there for legibility); centre whole layouts; use emoji bullets or Unicode icons (the icons are
+**Don't:** use purple or any gradient; glassmorphism or backdrop blur (none on the site, not even the nav);
+centre whole layouts; use emoji bullets or Unicode icons (the icons are
 Lucide at a 1.5px stroke); write filler copy; put an eyebrow above a heading; number sections
 01/02/03 (the Deck counter `01 / 04` is the one exception, because it shows position); use a
 colored `border-left`; nest cards; use a radius over 16px on containers; put a soft shadow under a border; animate
