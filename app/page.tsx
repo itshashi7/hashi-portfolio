@@ -8,7 +8,6 @@ import { IconSprite } from "@/components/ui/icon-sprite";
 // Below-the-fold sections are still pre-rendered to HTML, but their JS loads and hydrates in
 // separate chunks, so start-up work is split into small tasks instead of one long one.
 const Marquee = dynamic(() => import("@/components/sections/marquee").then((m) => m.Marquee));
-const Gallery = dynamic(() => import("@/components/sections/gallery").then((m) => m.Gallery));
 const Works = dynamic(() => import("@/components/sections/works").then((m) => m.Works));
 const Experiments = dynamic(() => import("@/components/sections/experiments").then((m) => m.Experiments));
 const Ask = dynamic(() => import("@/components/sections/ask").then((m) => m.Ask));
@@ -35,7 +34,6 @@ export default function Page() {
       <main id="main" className="relative z-[1]">
         <Hero />
         <Marquee />
-        <Gallery />
         <Works />
         <Experiments />
         <Ask />

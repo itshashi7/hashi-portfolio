@@ -10,8 +10,8 @@ web
 
 Decided in the build brief: Next.js (App Router) + TypeScript + Tailwind CSS, `output: 'export'`
 static build deployed to GitHub Pages at itshashi7.github.io/hashi-portfolio/ (repo hashi-portfolio). GSAP + ScrollTrigger (section
-choreography, Flip, pinning), Anime.js (micro-interactions), React Bits (Rotating Text, Logo Loop,
-Spotlight Card), next-themes (light/dark). No server, no API keys in the frontend, no LLM calls.
+choreography, Flip, pinning), Anime.js (micro-interactions), React Bits (Rotating Text, Logo Loop),
+next-themes (light/dark). No server, no API keys in the frontend, no LLM calls.
 
 ## Users
 
@@ -35,8 +35,8 @@ platform (IZO Multi Cloud Connect at Tata Communications, connecting enterprise 
 securely to AWS, Azure and GCP): Java and Spring Boot microservices, event-driven RabbitMQ
 integrations, PostgreSQL, MySQL and Redis, shipped through Jenkins CI/CD. He also works
 AI-assisted every day (GitHub Copilot Agent mode, Claude Code) and has built RAG pipelines and MCP
-servers hands-on. The site itself demonstrates the backend mindset through small, honest, working
-widgets instead of claims.
+servers hands-on. The site itself demonstrates the backend mindset through an honest, working
+request trace and system schematics instead of claims.
 
 ## Operating Context
 

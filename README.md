@@ -12,7 +12,7 @@ HTML and deployed to GitHub Pages at **https://itshashi7.github.io/hashi-portfol
 | Fonts | Archivo (headings and UI) and JetBrains Mono (figures, logs, code), self-hosted at build time via `next/font` |
 | Section motion | GSAP + ScrollTrigger (reveals, the Deck pin, the journey timeline) and GSAP Flip (Works layout changes) |
 | Micro-interactions | Anime.js 4 (loader counter, magnetic button, typed prompts, widget updates, chat messages) |
-| Components | React Bits: Rotating Text, Logo Loop and Spotlight Card, vendored in `components/reactbits/` (local edits are marked `local:`) |
+| Components | React Bits: Rotating Text and Logo Loop, vendored in `components/reactbits/` (local edits are marked `local:`) |
 | Theme | next-themes (dark default), with the View Transitions radial reveal |
 | Icons | lucide-react (UI) and simple-icons (stack logos; AWS, Azure and VS Code fall back to text wordmarks) |
 
@@ -85,8 +85,7 @@ folder that contains a copy of `out/` named `hashi-portfolio`, then open `/hashi
 ```
 app/                 layout, page, global CSS, sitemap, robots, icons
 components/site/     loader, nav, theme toggle, scroll index
-components/sections/ hero (+ request trace), marquee, gallery, works, experiments, ask, about, stack, footer
-components/widgets/  the six illustrative backend demos
+components/sections/ hero (+ request trace), marquee, works, experiments, ask, about, stack, footer
 components/works/    typed prompt line, case schematics
 components/reactbits React Bits components (vendored)
 lib/                 profile data, tokens, motion helpers, chat intents, Agent view Markdown, icons
