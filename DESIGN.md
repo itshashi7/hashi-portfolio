@@ -236,6 +236,27 @@ small controls (nav items, buttons, chips, toggles, the chat launcher).
 | Logo Loop marquee | React Bits Logo Loop | 40px/s linear, pauses on hover/focus | Static row, wraps |
 | Theme switch | View Transitions | radial reveal from the toggle, `max` 600ms `out-expo` | Instant swap |
 | Widgets | Anime.js | each update ≤ `base` 240ms | Values update without tweening; streams pause |
+| Smooth scroll | Lenis (driven by GSAP's ticker) | `lerp` 0.1; anchors handled by Lenis; inner scrollers opt out with `data-lenis-prevent` | Native scroll |
+| Scroll progress | GSAP ScrollTrigger scrub | 2px accent hairline, `scaleX` 0 → 1 | Hidden |
+| Cursor ring | GSAP `quickTo` | 36px ring, lag 400ms; swells to 1.7× and tints with `accent-soft` over clickable things; fine pointers only | Not rendered |
+| Service network (hero canvas) | Canvas 2D, seeded | 14–48 drifting nodes, links brighten near the pointer, amber request packets; starts when idle, pauses off-screen | One static frame |
+| Marquee bands | GSAP ticker | 70px/s (md row 46), speeds up with scroll velocity, reverses on scroll-up, skew ≤ 7°; alternating `ink` / `ink-subtle`; `aria-hidden` | Static, not moving |
+| Headline reveal | GSAP SplitText + ScrollTrigger | each line rises out of its own mask, `max` 600ms `out-expo`, 70ms stagger; only for headings below the fold | Plain text |
+| Sheet | GSAP ScrollTrigger scrub | About + Stack on the *opposite* theme (`.theme-light` / `.theme-dark`); its background plate widens `scaleX` .9 → 1 while the text never scales | Plate at full width |
+| Sliding thumb | GSAP | nav, filter chips and view toggle share one pill that glides to the active item, `slow` 400ms `out-expo` | Jumps |
+
+### Buttons (poulo.site's mechanics, our tokens)
+
+- **Primary pill (`ShineLink`):** a skewed light bar sweeps across on hover (`max` 600ms), the arrow rolls out and
+  a copy rolls in, and press squeezes to 0.97. Wrapped in `Magnetic` for the pull.
+- **Secondary pill (`LiquidLink` / `LiquidButton`):** a wave of `ink` rises through the pill on hover and the
+  label inverts exactly where the fill passes (a counter-translated copy inside a clip). The crest drifts sideways
+  only while hovered. It's a hover fill, not press-and-hold, so keyboard and touch users get the same result.
+- **Nav CTA (`HireLink`):** a breathing `accent` dot in a round bubble (it signals "available", which is a live
+  state), an echo trail on hover, and a label that rolls to "Say hello".
+- **Text roll (`RollText`):** two stacked copies slide on hover and focus; used for nav items and footer rows.
+- **Theme toggle:** sun and moon rotate and scale through each other (`slow`).
+- Every one also reacts to keyboard focus, not just hover, and is plain and instant under reduced motion.
 
 **Rules:** animate `transform` and `opacity` only. Nothing exceeds 600ms except the loader. Content
 is visible without JavaScript, so GSAP applies the from-state at mount and never ships hidden HTML.
@@ -244,6 +265,13 @@ Flip) rather than repeating one fade. Scroll must hold 60fps: no scroll listener
 only ScrollTrigger, and `will-change` only while animating. Every animation checks
 `prefers-reduced-motion: reduce` through a shared `useReducedMotion()` and a GSAP
 `matchMedia()` context.
+
+**Deliberate exceptions (each one contained):** (1) ambient loops, namely the marquee bands, the network
+canvas, the status dot and the wave drift, run longer than 600ms because they never block anything, and
+all pause off-screen or on hover where that matters; (2) scroll-scrubbed effects (progress bar, sheet) are tied to the
+scroll position, not to a clock; (3) the sliding thumb tweens `width` and `height` on one tiny absolutely
+positioned element (nothing else is laid out around it); (4) the canvas is drawn, not styled, so the
+transform/opacity rule doesn't apply to it. Nothing else may break the rules.
 
 ## Browser surfaces (themed, never default)
 

@@ -6,6 +6,7 @@ import { distance, dur, gsapEase, stagger } from "@/lib/tokens";
 import { profile, projects } from "@/lib/profile";
 import { TodoText } from "@/components/ui/todo-text";
 import { useReveal } from "@/components/ui/use-reveal";
+import { useSplitReveal } from "@/components/fx/use-split-reveal";
 import { whenIdle } from "@/lib/idle";
 
 const exp = profile.experience[0];
@@ -22,6 +23,7 @@ export function About() {
   const root = useRef<HTMLElement>(null);
   const rail = useRef<HTMLSpanElement>(null);
   useReveal(root, { selector: "[data-reveal]" });
+  useSplitReveal(root);
 
   // Journey: the rail draws down (scaleY) and rows stagger in.
   useGSAP(
@@ -48,7 +50,7 @@ export function About() {
   return (
     <section ref={root} id="about" aria-labelledby="about-title" className="container-site section-gap">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-        <h2 id="about-title" data-reveal className="text-h2 text-ink wdth-heading lg:col-span-4">
+        <h2 id="about-title" data-split className="text-h2 text-ink wdth-heading lg:col-span-4">
           About.
         </h2>
         <div className="space-y-5 lg:col-span-8">
@@ -68,7 +70,7 @@ export function About() {
       </div>
 
       <div data-journey className="mt-20">
-        <h3 data-reveal className="text-h3 text-ink wdth-heading">
+        <h3 data-split className="text-h3 text-ink wdth-heading">
           Journey.
         </h3>
         <div className="relative mt-8">

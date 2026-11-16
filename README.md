@@ -10,7 +10,8 @@ HTML and deployed to GitHub Pages at **https://itshashi7.github.io/hashi-portfol
 | Framework | Next.js 16 (App Router), `output: "export"`, TypeScript |
 | Styling | Tailwind CSS 4, tokens from `DESIGN.md` → `app/globals.css` |
 | Fonts | Archivo (headings and UI) and JetBrains Mono (figures, logs, code), self-hosted at build time via `next/font` |
-| Section motion | GSAP + ScrollTrigger (reveals, the Deck pin, the journey timeline) and GSAP Flip (Works layout changes) |
+| Section motion | GSAP + ScrollTrigger (reveals, the Deck pin, the journey timeline, scrubbed sheet), GSAP SplitText (line-mask headline reveals) and GSAP Flip (Works layout changes) |
+| Smooth scroll | Lenis, driven by GSAP's ticker (off under reduced motion) |
 | Micro-interactions | Anime.js 4 (loader counter, magnetic button, typed prompts, widget updates, chat messages) |
 | Components | React Bits: Rotating Text and Logo Loop, vendored in `components/reactbits/` (local edits are marked `local:`) |
 | Theme | next-themes (dark default), with the View Transitions radial reveal |
@@ -85,6 +86,8 @@ folder that contains a copy of `out/` named `hashi-portfolio`, then open `/hashi
 ```
 app/                 layout, page, global CSS, sitemap, robots, icons
 components/site/     loader, nav, theme toggle, scroll index
+components/fx/       smooth scroll, cursor, scroll progress, hero service-network canvas, marquee bands, split reveals, theme-flipping sheet
+components/ui/       buttons (shine, liquid, hire CTA, roll text), sliding thumb, magnetic, reveal helpers
 components/sections/ hero (+ request trace), marquee, works, experiments, ask, about, stack, footer
 components/works/    typed prompt line, case schematics
 components/reactbits React Bits components (vendored)

@@ -8,7 +8,7 @@ export function ScrollIndex() {
   return (
     <nav
       aria-label="Sections on this page"
-      className="fixed left-4 top-1/2 z-[var(--z-sticky)] hidden -translate-y-1/2 flex-col gap-1 lg:flex"
+      className="fixed left-4 top-1/2 z-[var(--z-sticky)] hidden -translate-y-1/2 flex-col gap-1 xl:flex"
     >
       {SECTIONS.map(({ id, label }) => {
         const on = active === id;

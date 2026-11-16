@@ -4,6 +4,12 @@ import { Nav } from "@/components/site/nav";
 import { ScrollIndex } from "@/components/site/scroll-index";
 import { Hero } from "@/components/sections/hero";
 import { IconSprite } from "@/components/ui/icon-sprite";
+import { SmoothScroll } from "@/components/fx/smooth-scroll";
+import { ScrollProgress } from "@/components/fx/scroll-progress";
+import { Cursor } from "@/components/fx/cursor";
+import { Band } from "@/components/fx/band";
+import { Sheet } from "@/components/fx/sheet";
+import { profile } from "@/lib/profile";
 
 // Below-the-fold sections are still pre-rendered to HTML, but their JS loads and hydrates in
 // separate chunks, so start-up work is split into small tasks instead of one long one.
@@ -16,6 +22,19 @@ const About = dynamic(() => import("@/components/sections/about").then((m) => m.
 const Stack = dynamic(() => import("@/components/sections/stack").then((m) => m.Stack));
 const Footer = dynamic(() => import("@/components/sections/footer").then((m) => m.Footer));
 
+// Band copy comes from the CV and the facts confirmed in profile.json.
+const BAND_ROWS = [
+  {
+    items: ["Java", "Spring Boot", "Microservices", "RabbitMQ", "Redis", "PostgreSQL", "Docker", "AWS, Azure, GCP"],
+    dir: 1 as const,
+  },
+  {
+    items: ["Open to remote", "Open to relocate: UAE", "Open to relocate: KSA", `Notice: ${profile.faq.noticePeriod.replace(/\.$/, "")}`],
+    dir: -1 as const,
+    size: "md" as const,
+  },
+];
+
 export default function Page() {
   return (
     <>
@@ -26,6 +45,9 @@ export default function Page() {
         Skip to content
       </a>
       <IconSprite />
+      <SmoothScroll />
+      <ScrollProgress />
+      <Cursor />
       <Loader />
       <Nav />
       <ScrollIndex />
@@ -35,10 +57,15 @@ export default function Page() {
         <Hero />
         <Marquee />
         <Works />
+        <div className="mt-24 lg:mt-32">
+          <Band rows={BAND_ROWS} label="stack-and-availability" />
+        </div>
         <Experiments />
         <Ask />
-        <About />
-        <Stack />
+        <Sheet>
+          <About />
+          <Stack />
+        </Sheet>
       </main>
       <Footer />
       <AskLauncher />

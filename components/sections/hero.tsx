@@ -5,6 +5,8 @@ import { animate } from "animejs";
 import { ArrowDown, Download, Mail, Minus, Plus } from "lucide-react";
 import RotatingText from "@/components/reactbits/RotatingText";
 import { Magnetic } from "@/components/ui/magnetic";
+import { LiquidLink, ShineLink } from "@/components/ui/buttons";
+import { NetworkField } from "@/components/fx/network-field";
 import { LOADER_DONE, loaderFinished } from "@/components/site/loader";
 import { gsap, useGSAP, useReducedMotion, MOTION_OK } from "@/lib/motion";
 import { cubic, distance, dur, gsapEase, ms, stagger } from "@/lib/tokens";
@@ -51,8 +53,9 @@ export function Hero() {
   );
 
   return (
-    <section ref={root} id="home" aria-labelledby="hero-title" className="container-site pt-36 sm:pt-44">
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
+    <section ref={root} id="home" aria-labelledby="hero-title" className="container-site relative pt-36 sm:pt-44">
+      <NetworkField />
+      <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
           <h1 id="hero-title" className="text-display text-ink wdth-heading" data-hero>
             <span className="sr-only">
@@ -84,28 +87,18 @@ export function Hero() {
           </h1>
           <div className="mt-10 flex flex-wrap items-center gap-3" data-hero>
             <Magnetic>
-              <a
-                href="#work"
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-ink px-5 text-small font-[550] text-canvas"
-              >
-                See my work <ArrowDown size={16} strokeWidth={1.5} aria-hidden="true" />
-              </a>
+              <ShineLink href="#work" icon={ArrowDown} dir="down">
+                See my work
+              </ShineLink>
             </Magnetic>
             {resumeHref ? (
-              <a
-                href={resumeHref}
-                download="Hashim_Khan_N_Resume.pdf"
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-hairline-strong bg-surface-1 px-5 text-small text-ink hover:bg-surface-2"
-              >
-                <Download size={16} strokeWidth={1.5} aria-hidden="true" /> Download CV
-              </a>
+              <LiquidLink href={resumeHref} download="Hashim_Khan_N_Resume.pdf" icon={Download}>
+                Download CV
+              </LiquidLink>
             ) : (
-              <a
-                href={mailto()}
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-hairline-strong bg-surface-1 px-5 text-small text-ink hover:bg-surface-2"
-              >
-                <Mail size={16} strokeWidth={1.5} aria-hidden="true" /> Email me
-              </a>
+              <LiquidLink href={mailto()} icon={Mail}>
+                Email me
+              </LiquidLink>
             )}
           </div>
         </div>
@@ -118,7 +111,7 @@ export function Hero() {
           </ul>
         </div>
       </div>
-      <div data-hero>
+      <div data-hero className="relative">
         <RequestTrace />
       </div>
     </section>

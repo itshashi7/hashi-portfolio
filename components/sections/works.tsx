@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowRight, GalleryVerticalEnd, LayoutGrid, Rows3 } from "lucide-react";
+import { GalleryVerticalEnd, LayoutGrid, Rows3 } from "lucide-react";
 import { Flip, gsap, ScrollTrigger, useGSAP, prefersReduced, useReducedMotion, MOTION_OK } from "@/lib/motion";
 import { dur, gsapEase } from "@/lib/tokens";
 import { categories, projects, type Category, type Project } from "@/lib/profile";
@@ -9,6 +9,9 @@ import { PromptLine } from "@/components/works/prompt-line";
 import { Schematic } from "@/components/works/schematic";
 import { TodoLink, TodoText } from "@/components/ui/todo-text";
 import { useReveal } from "@/components/ui/use-reveal";
+import { useSplitReveal } from "@/components/fx/use-split-reveal";
+import { Thumb, useThumb } from "@/components/ui/use-thumb";
+import { RollIcon } from "@/components/ui/buttons";
 
 type View = "showcase" | "grid" | "deck";
 type Filter = "All" | Category;
@@ -30,6 +33,9 @@ export function Works() {
   const list = projects.filter((p) => filter === "All" || p.categories.includes(filter));
 
   useReveal(root, { selector: "[data-reveal]" });
+  useSplitReveal(root);
+  const chips = useThumb<HTMLDivElement>([filter]);
+  const views = useThumb<HTMLDivElement>([view]);
 
   const change = (fn: () => void, nextView: View = view) => {
     if (!prefersReduced() && view !== "deck" && nextView !== "deck") {
@@ -75,20 +81,22 @@ export function Works() {
 
   return (
     <section ref={root} id="work" aria-labelledby="work-title" className="container-site section-gap">
-      <h2 id="work-title" data-reveal className="text-h2 text-ink wdth-heading">
+      <h2 id="work-title" data-split className="text-h2 text-ink wdth-heading">
         Selected work.
       </h2>
 
       <div data-reveal className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-        <div role="group" aria-label="Filter projects" className="flex flex-wrap gap-1 self-start rounded-full border border-hairline bg-surface-1 p-1">
+        <div ref={chips.box} data-thumb="off" role="group" aria-label="Filter projects" className="relative flex flex-wrap gap-1 self-start rounded-full border border-hairline bg-surface-1 p-1">
+          <Thumb thumbRef={chips.thumb} />
           {(["All", ...categories] as Filter[]).map((f) => (
             <button
               key={f}
               type="button"
               aria-pressed={filter === f}
+              data-active={filter === f}
               onClick={() => change(() => setFilter(f))}
-              className={`flex h-8 items-center gap-1.5 rounded-full px-3 text-small ${
-                filter === f ? "bg-surface-2 text-ink" : "text-ink-muted hover:text-ink"
+              className={`relative flex h-8 items-center gap-1.5 rounded-full px-3 text-small transition-transform duration-[var(--dur-fast)] ease-out-quart active:scale-95 motion-reduce:transition-none ${
+                filter === f ? "text-ink" : "text-ink-muted hover:text-ink"
               }`}
             >
               {f}
@@ -96,15 +104,17 @@ export function Works() {
             </button>
           ))}
         </div>
-        <div role="group" aria-label="Layout" className="flex gap-1 self-start rounded-full border border-hairline bg-surface-1 p-1">
+        <div ref={views.box} data-thumb="off" role="group" aria-label="Layout" className="relative flex gap-1 self-start rounded-full border border-hairline bg-surface-1 p-1">
+          <Thumb thumbRef={views.thumb} />
           {VIEWS.map(({ id, label, Icon }) => (
             <button
               key={id}
               type="button"
               aria-pressed={view === id}
+              data-active={view === id}
               onClick={() => change(() => setView(id), id)}
-              className={`flex h-8 items-center gap-1.5 rounded-full px-3 text-small ${
-                view === id ? "bg-surface-2 text-ink" : "text-ink-muted hover:text-ink"
+              className={`relative flex h-8 items-center gap-1.5 rounded-full px-3 text-small transition-transform duration-[var(--dur-fast)] ease-out-quart active:scale-95 motion-reduce:transition-none ${
+                view === id ? "text-ink" : "text-ink-muted hover:text-ink"
               }`}
             >
               <Icon size={15} strokeWidth={1.5} aria-hidden="true" />
@@ -237,9 +247,9 @@ function GridCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
       <button
         type="button"
         onClick={onOpen}
-        className="mt-auto inline-flex items-center gap-1.5 self-start pt-6 text-small text-ink hover:text-accent-text"
+        className="group/btn mt-auto inline-flex items-center gap-1.5 self-start pt-6 text-small text-ink hover:text-accent-text"
       >
-        Read the case study <ArrowRight size={15} strokeWidth={1.5} aria-hidden="true" />
+        Read the case study <RollIcon />
       </button>
     </>
   );
@@ -335,8 +345,8 @@ function DeckFoot({ p, onOpen }: { p: Project; onOpen: (id: string) => void }) {
         <span className="font-mono text-mono-sm text-ink-subtle">
           {p.type} · <TodoText text={p.year} />
         </span>
-        <button type="button" onClick={() => onOpen(p.id)} className="inline-flex items-center gap-1.5 text-small text-ink hover:text-accent-text">
-          Read the case study <ArrowRight size={15} strokeWidth={1.5} aria-hidden="true" />
+        <button type="button" onClick={() => onOpen(p.id)} className="group/btn inline-flex items-center gap-1.5 text-small text-ink hover:text-accent-text">
+          Read the case study <RollIcon />
         </button>
     </div>
   );

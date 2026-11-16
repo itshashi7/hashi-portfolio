@@ -5,6 +5,8 @@ import { ArrowUpRight, Check, Copy, Download, FileText, X } from "lucide-react";
 import { agentMarkdown } from "@/lib/agent-markdown";
 import { mailto, profile, resumeHref } from "@/lib/profile";
 import { Todo } from "@/components/ui/todo-text";
+import { LiquidButton, RollIcon, RollText } from "@/components/ui/buttons";
+import { useSplitReveal } from "@/components/fx/use-split-reveal";
 
 const LINKS = [
   { label: "Email", href: mailto(), value: profile.links.email },
@@ -13,6 +15,8 @@ const LINKS = [
 ];
 
 export function Footer() {
+  const root = useRef<HTMLElement>(null);
+  useSplitReveal(root);
   const dialog = useRef<HTMLDialogElement>(null);
   const [md, setMd] = useState("");
   const [copied, setCopied] = useState(false);
@@ -33,9 +37,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="container-site section-gap pb-12">
+    <footer ref={root} className="container-site section-gap pb-12">
       <div className="border-t border-hairline pt-16">
-        <p className="max-w-[24ch] text-h2 text-ink wdth-heading">Good backends are quiet. You notice them only when they&apos;re missing.</p>
+        <p data-split className="max-w-[24ch] text-h2 text-ink wdth-heading">Good backends are quiet. You notice them only when they&apos;re missing.</p>
 
         <div className="mt-16 grid gap-10 md:grid-cols-12">
           <div className="md:col-span-7">
@@ -46,22 +50,26 @@ export function Footer() {
                   <a
                     href={l.href}
                     {...(l.external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
-                    className="group flex items-center justify-between gap-4 py-4"
+                    className="group group/btn flex items-center justify-between gap-4 py-4"
                   >
-                    <span className="text-body text-ink">{l.label}</span>
+                    <span className="text-body text-ink">
+                      <RollText>{l.label}</RollText>
+                    </span>
                     <span className="flex min-w-0 items-center gap-2 text-small text-ink-muted group-hover:text-ink">
                       <span className="truncate">{l.value}</span>
-                      <ArrowUpRight size={15} strokeWidth={1.5} aria-hidden="true" className="shrink-0" />
+                      <RollIcon icon={ArrowUpRight} />
                     </span>
                   </a>
                 </li>
               ))}
               <li>
                 {resumeHref ? (
-                  <a href={resumeHref} download="Hashim_Khan_N_Resume.pdf" className="group flex items-center justify-between gap-4 py-4">
-                    <span className="text-body text-ink">Resume</span>
+                  <a href={resumeHref} download="Hashim_Khan_N_Resume.pdf" className="group group/btn flex items-center justify-between gap-4 py-4">
+                    <span className="text-body text-ink">
+                      <RollText>Resume</RollText>
+                    </span>
                     <span className="flex items-center gap-2 text-small text-ink-muted group-hover:text-ink">
-                      cv.pdf <Download size={15} strokeWidth={1.5} aria-hidden="true" />
+                      cv.pdf <RollIcon icon={Download} dir="down" />
                     </span>
                   </a>
                 ) : (
@@ -74,13 +82,9 @@ export function Footer() {
             </ul>
           </div>
           <div className="flex flex-col justify-between gap-8 md:col-span-4 md:col-start-9">
-            <button
-              type="button"
-              onClick={open}
-              className="inline-flex h-10 items-center gap-2 self-start rounded-full border border-hairline-strong bg-surface-1 px-4 text-small text-ink hover:bg-surface-2"
-            >
-              <FileText size={15} strokeWidth={1.5} aria-hidden="true" /> Agent view
-            </button>
+            <LiquidButton onClick={open} icon={FileText} className="self-start">
+              Agent view
+            </LiquidButton>
             <p className="text-small text-ink-subtle">
               Designed and built by Hashim · <span className="tabular">{new Date().getFullYear()}</span>
             </p>
@@ -91,6 +95,7 @@ export function Footer() {
       <dialog
         ref={dialog}
         aria-labelledby="agent-title"
+        data-lenis-prevent
         className="m-auto w-[min(56rem,calc(100vw-2rem))] max-w-none rounded-lg bg-surface-1 p-0 text-ink shadow-float backdrop:bg-scrim"
         onClick={(e) => e.target === dialog.current && dialog.current?.close()}
       >

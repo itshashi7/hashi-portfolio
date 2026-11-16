@@ -51,9 +51,20 @@ export function ThemeToggle() {
       type="button"
       onClick={onClick}
       aria-label={`Switch to ${next} theme`}
-      className="grid size-10 place-items-center rounded-full bg-surface-1/80 sm:size-11 text-ink-muted shadow-float backdrop-blur-md hover:text-ink"
+      className="group relative grid size-10 place-items-center overflow-hidden rounded-full bg-surface-1/80 text-ink-muted shadow-float backdrop-blur-md transition-transform duration-[var(--dur-fast)] ease-out-quart hover:text-ink active:scale-90 motion-reduce:transition-none sm:size-11"
     >
-      {isDark ? <Sun size={17} strokeWidth={1.5} aria-hidden="true" /> : <Moon size={17} strokeWidth={1.5} aria-hidden="true" />}
+      <Sun
+        size={17}
+        strokeWidth={1.5}
+        aria-hidden="true"
+        className={`col-start-1 row-start-1 transition-[transform,opacity] duration-[var(--dur-slow)] ease-out-expo motion-reduce:transition-none ${isDark ? "rotate-0 scale-100 opacity-100" : "rotate-90 scale-50 opacity-0"}`}
+      />
+      <Moon
+        size={17}
+        strokeWidth={1.5}
+        aria-hidden="true"
+        className={`col-start-1 row-start-1 transition-[transform,opacity] duration-[var(--dur-slow)] ease-out-expo motion-reduce:transition-none ${isDark ? "-rotate-90 scale-50 opacity-0" : "rotate-0 scale-100 opacity-100"}`}
+      />
     </button>
   );
 }

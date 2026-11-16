@@ -7,6 +7,7 @@ import { ask, STARTERS, type Answer } from "@/lib/chat";
 import { prefersReduced } from "@/lib/motion";
 import { ms } from "@/lib/tokens";
 import { useReveal } from "@/components/ui/use-reveal";
+import { useSplitReveal } from "@/components/fx/use-split-reveal";
 
 type Msg = { id: number; from: "you" | "hashim"; text: string; links?: Answer["links"] };
 
@@ -24,6 +25,7 @@ export function Ask() {
   const [msgs, setMsgs] = useState<Msg[]>([INTRO]);
   const [value, setValue] = useState("");
   useReveal(root);
+  useSplitReveal(root);
 
   const submit = (q: string) => {
     const text = q.trim();
@@ -52,7 +54,7 @@ export function Ask() {
     <section ref={root} id="ask" aria-labelledby="ask-title" className="container-site section-gap">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <h2 id="ask-title" data-reveal className="text-h2 text-ink wdth-heading">
+          <h2 id="ask-title" data-split className="text-h2 text-ink wdth-heading">
             Ask me anything.
           </h2>
           <p data-reveal className="mt-4 text-body text-ink-muted measure">
@@ -63,6 +65,7 @@ export function Ask() {
           <div
             ref={log}
             role="log"
+            data-lenis-prevent
             aria-live="polite"
             aria-label="Conversation"
             tabIndex={0}

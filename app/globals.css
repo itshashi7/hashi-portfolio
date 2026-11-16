@@ -3,8 +3,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---------- Theme tokens (light is the base, .dark overrides) ---------- */
-:root {
+/* ---------- Theme tokens (light is the base, .dark overrides) ----------
+   .theme-light / .theme-dark re-declare a whole set on any element, so a section can invert the page theme. */
+:root,
+.theme-light {
   --canvas: #f9fafb;
   --surface-1: #ffffff;
   --surface-2: #f1f2f4;
@@ -45,7 +47,8 @@
   --z-loader: 100;
 }
 
-.dark {
+.dark,
+.theme-dark {
   --canvas: #0b0c0f;
   --surface-1: #121417;
   --surface-2: #1a1c20;
@@ -66,12 +69,16 @@
 }
 
 @media (min-width: 768px) {
-  :root {
+  :root,
+  .theme-light,
+  .theme-dark {
     --gutter: 24px;
   }
 }
 @media (min-width: 1024px) {
-  :root {
+  :root,
+  .theme-light,
+  .theme-dark {
     --gutter: 40px;
     --section-gap: 160px;
   }
@@ -173,7 +180,6 @@
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-offset);
     scrollbar-color: var(--hairline-strong) transparent;
     scrollbar-width: thin;
   }
@@ -254,6 +260,52 @@
 }
 @utility wdth-heading {
   font-variation-settings: "wdth" 92;
+}
+
+/* Lenis smooth scroll (from the library's own stylesheet). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Sliding thumb: until JS places it, the active item shows its own fill (no flash on first paint). */
+[data-thumb="off"] [data-active="true"] {
+  background-color: var(--surface-2);
+}
+
+/* Liquid button: the wave crest drifts sideways while the fill is up. */
+@keyframes wave-drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* "Hire me" status dot: breathes while the site says you're available. */
+@keyframes dot-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.72);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-anim {
+    animation: none !important;
+  }
 }
 
 /* Typing caret: steps blink, static under reduced motion. */

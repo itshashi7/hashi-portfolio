@@ -6,6 +6,8 @@ import { gsap, ScrollTrigger, useGSAP, MOTION_OK } from "@/lib/motion";
 import { dur, gsapEase } from "@/lib/tokens";
 import { SECTIONS, setActiveSection, useActiveSection, type SectionId } from "@/lib/active-section";
 import { mailto } from "@/lib/profile";
+import { HireLink, RollText } from "@/components/ui/buttons";
+import { Thumb, useThumb } from "@/components/ui/use-thumb";
 import { ThemeToggle } from "./theme-toggle";
 
 const ICONS: Record<SectionId, typeof House> = {
@@ -19,6 +21,7 @@ const ICONS: Record<SectionId, typeof House> = {
 export function Nav() {
   const bar = useRef<HTMLElement>(null);
   const active = useActiveSection();
+  const { box: thumbBox, thumb } = useThumb<HTMLElement>([active]);
 
   useGSAP(() => {
     // Scroll-spy: the last section whose top has passed the upper third of the viewport is active.
@@ -67,9 +70,12 @@ export function Nav() {
     >
       <div className="flex items-center gap-1.5 sm:gap-2">
         <nav
+          ref={thumbBox}
+          data-thumb="off"
           aria-label="Primary"
-          className="flex h-11 items-center gap-0.5 rounded-full bg-surface-1/80 p-1 shadow-float backdrop-blur-md"
+          className="relative flex h-11 items-center gap-0.5 rounded-full bg-surface-1/80 p-1 shadow-float backdrop-blur-md"
         >
+          <Thumb thumbRef={thumb} />
           {SECTIONS.map(({ id, label }) => {
             const Icon = ICONS[id];
             const on = active === id;
@@ -77,13 +83,16 @@ export function Nav() {
               <a
                 key={id}
                 href={`#${id}`}
+                data-active={on}
                 aria-current={on ? "location" : undefined}
-                className={`relative flex h-9 items-center gap-2 rounded-full px-2.5 text-small sm:px-3 ${
-                  on ? "bg-surface-2 text-ink" : "text-ink-muted hover:text-ink"
+                className={`group relative flex h-9 items-center gap-2 rounded-full px-2.5 text-small sm:px-3 ${
+                  on ? "text-ink" : "text-ink-muted hover:text-ink"
                 }`}
               >
                 <Icon size={16} strokeWidth={1.5} aria-hidden="true" />
-                <span className="sr-only md:not-sr-only">{label}</span>
+                <span className="sr-only md:not-sr-only">
+                  <RollText>{label}</RollText>
+                </span>
                 {on && (
                   <span
                     aria-hidden="true"
@@ -94,12 +103,7 @@ export function Nav() {
             );
           })}
         </nav>
-        <a
-          href={mailto()}
-          className="flex h-11 items-center rounded-full bg-ink px-3.5 text-small sm:px-4 font-[550] text-canvas shadow-float transition-transform duration-[var(--dur-fast)] ease-out-quart hover:-translate-y-0.5"
-        >
-          Hire me
-        </a>
+        <HireLink href={mailto()} />
         <ThemeToggle />
       </div>
     </header>

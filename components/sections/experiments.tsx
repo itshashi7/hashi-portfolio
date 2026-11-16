@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { profile } from "@/lib/profile";
 import { TodoLink } from "@/components/ui/todo-text";
 import { useReveal } from "@/components/ui/use-reveal";
+import { useSplitReveal } from "@/components/fx/use-split-reveal";
 import { stagger } from "@/lib/tokens";
 
 function RagArtefact() {
@@ -63,9 +64,10 @@ const ARTEFACTS: Record<string, React.ReactNode> = {
 export function Experiments() {
   const root = useRef<HTMLElement>(null);
   useReveal(root, { each: stagger.cards });
+  useSplitReveal(root);
   return (
     <section ref={root} id="experiments" aria-labelledby="exp-title" className="container-site section-gap">
-      <h2 id="exp-title" data-reveal className="text-h2 text-ink wdth-heading">
+      <h2 id="exp-title" data-split className="text-h2 text-ink wdth-heading">
         Experiments.
       </h2>
       <p data-reveal className="mt-4 text-body text-ink-muted measure">

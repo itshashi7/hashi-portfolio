@@ -3,15 +3,17 @@
 import { useRef } from "react";
 import { MarkGlyph } from "@/components/ui/mark";
 import { useReveal } from "@/components/ui/use-reveal";
+import { useSplitReveal } from "@/components/fx/use-split-reveal";
 import { isDarkBrand, marks } from "@/lib/icons";
 import { profile } from "@/lib/profile";
 
 export function Stack() {
   const root = useRef<HTMLElement>(null);
   useReveal(root, { each: 0.02 });
+  useSplitReveal(root);
   return (
     <section ref={root} id="stack" aria-labelledby="stack-title" className="container-site section-gap">
-      <h2 id="stack-title" data-reveal className="text-h2 text-ink wdth-heading">
+      <h2 id="stack-title" data-split className="text-h2 text-ink wdth-heading">
         Stack.
       </h2>
       <ul className="mt-10 grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
